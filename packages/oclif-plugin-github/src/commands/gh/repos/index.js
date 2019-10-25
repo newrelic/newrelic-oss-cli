@@ -4,9 +4,9 @@ const {Command, flags} = require('@oclif/command')
 const Octokit = require('@octokit/rest')
 const octokit = new Octokit()
 
-class ReposListCommand extends Command {
+class ReposCommand extends Command {
   async run() {
-    const {flags} = this.parse(ReposListCommand)
+    const {flags} = this.parse(ReposCommand)
     // const name = flags.name || 'world'
     // this.log(`hello ${name} from ./src/commands/repos/list.js`)
 
@@ -29,13 +29,13 @@ class ReposListCommand extends Command {
   }
 }
 
-ReposListCommand.description = `Describe the command here
+ReposCommand.description = `Describe the command here
 ...
 Extra documentation goes here
 `
 
-ReposListCommand.flags = {
+ReposCommand.flags = {
   org: flags.string({char: 'org', description: 'Organization'}),
 }
 
-module.exports = ReposListCommand
+module.exports = ReposCommand
