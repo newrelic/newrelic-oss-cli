@@ -1,20 +1,16 @@
 {
-  "name": "gh-manager",
-  "description": "Github Manager CLI",
-  "version": "0.0.1",
+  "name": "@newrelic/plugin-oss-nerdpack-generator",
+  "description": "Scaffold an open-source nerdpack",
+  "version": "0.0.0",
   "author": "DevFreddy @devfreddy",
-  "bin": {
-    "gh": "./bin/run"
-  },
-  "bugs": "https://github.com/newrelic/oclif-plugin-github/issues",
+  "bugs": "https://github.com/newrelic/oss-cli/issues",
   "dependencies": {
     "@oclif/command": "^1.5.19",
-    "@oclif/config": "^1.13.3",
-    "@oclif/plugin-help": "^2.2.1",
-    "@octokit/rest": "^16.30.1"
+    "@oclif/config": "^1.13.3"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
+    "@oclif/plugin-help": "^2.2.1",
     "eslint": "^5.16.0",
     "eslint-config-oclif": "^3.1.0",
     "globby": "^10.0.1"
@@ -23,21 +19,20 @@
     "node": ">=8.0.0"
   },
   "files": [
-    "/bin",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
-    "/src"
+    "/src",
+    "/yarn.lock"
   ],
-  "homepage": "https://github.com/newrelic/oclif-plugin-github",
+  "homepage": "https://github.com/newrelic/oss-cli",
   "keywords": [
-    "oclif"
+    "oclif-plugin"
   ],
-  "license": "MIT",
-  "main": "src/index.js",
+  "license": "Apache-2.0",
   "oclif": {
     "commands": "./src/commands",
-    "bin": "ghm",
-    "plugins": [
+    "bin": "oclif-example",
+    "devPlugins": [
       "@oclif/plugin-help"
     ]
   },
