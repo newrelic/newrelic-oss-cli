@@ -5,7 +5,12 @@
   "bugs": "https://github.com/newrelic/oss-cli/issues",
   "dependencies": {
     "@oclif/command": "^1.5.19",
-    "@oclif/config": "^1.13.3"
+    "@oclif/config": "^1.13.3",
+    "chalk": "^2.4.2",
+    "fs-extra": "^8.1.0",
+    "license-checker": "^25.0.1",
+    "semver": "^6.3.0",
+    "spdx-license-list": "^6.1.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
