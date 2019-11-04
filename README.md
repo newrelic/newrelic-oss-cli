@@ -61,3 +61,20 @@ Issues and enhancement requests can be submitted in the [Issues tab of this repo
 Contributions are welcome (and if you submit a Enhancement Request, expect to be invited to contribute it yourself :grin:). Please review our [Contributors Guide](CONTRIBUTING.md).
 
 Keep in mind that when you submit your pull request, you'll need to sign the CLA via the click-through using CLA-Assistant. If you'd like to execute our corporate CLA, or if you have any questions, please drop us an email at opensource+js-project-template@newrelic.com.
+
+## Local Development
+
+This is a [Lerna](https://github.com/lerna/lerna) monorepo. Developing locally has a few caveats.
+
+Useful commands:
+
+`lerna clean` - remove all node_modules folders
+`lerna bootstrap` - install all dependencies (install node_modules folder)
+`lerna list` - list packages
+
+
+### Plugin Development
+To "install" a plugin you want to develop, do not include it in the package.json and do not install it with `oss plugins:install YOURPLUGIN`, this will pull the npm version of the plugin.
+
+Instead you want to "link" it for local development with:
+`./packages/oss-cli/bin/run plugins:link <path to your plugin>`
