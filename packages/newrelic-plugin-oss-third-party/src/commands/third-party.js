@@ -1,3 +1,6 @@
+/* eslint-disable unicorn/catch-error-name */
+/* eslint-disable node/no-unsupported-features/es-syntax */
+// eslint-disable-next-line node/no-extraneous-require
 const {cli} = require('cli-ux')
 const {Command, flags} = require('@oclif/command')
 const chalk = require('chalk')
@@ -184,6 +187,7 @@ class ThirdPartyCommand extends Command {
       url: licenseCheckerPkg.url,
     }
 
+    // eslint-disable-next-line unicorn/explicit-length-check
     if (FOR_REVIEW.length) {
       licenseInfo.FOR_REVIEW = FOR_REVIEW
     }

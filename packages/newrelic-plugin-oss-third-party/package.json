@@ -1,8 +1,8 @@
 {
-  "name": "@newrelic/plugin-oss-third-party",
-  "version": "0.0.1",
+  "name": "@newrelic/newrelic-plugin-oss-third-party",
+  "version": "0.0.0",
   "author": "New Relic",
-  "bugs": "https://github.com/newrelic/oss-cli/issues",
+  "bugs": "https://github.com/newrelic/newrelic-oss-cli/issues",
   "dependencies": {
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
@@ -28,7 +28,7 @@
     "/src",
     "/yarn.lock"
   ],
-  "homepage": "https://github.com/newrelic/oss-cli",
+  "homepage": "https://github.com/newrelic/newrelic-oss-cli",
   "keywords": [
     "oclif-plugin"
   ],
@@ -40,7 +40,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "newrelic/oss-cli",
+  "repository": "newrelic/newrelic-oss-cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint .",

@@ -1,6 +1,6 @@
-# newrelic-oss-cli
+# newrelic-newrelic-oss-cli
 
-![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/newrelic/oss-cli?include_prereleases&sort=semver) [![Snyk](https://snyk.io/test/github/newrelic/oss-cli/badge.svg)](https://snyk.io/test/github/newrelic/oss-cli)
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/newrelic/newrelic-oss-cli?include_prereleases&sort=semver) [![Snyk](https://snyk.io/test/github/newrelic/newrelic-oss-cli/badge.svg)](https://snyk.io/test/github/newrelic/newrelic-oss-cli)
 
 Description of the project is here.
 
@@ -9,7 +9,7 @@ Description of the project is here.
 ![Screenshot #1](screenshots/screenshot_01.png)
 
 List open issues by repository in an org:
-`./packages/oss-cli/bin/run gh:issues --org=newrelic`
+`./packages/newrelic-oss-cli/bin/run gh:issues --org=newrelic`
 
 ## What problem(s) does this library solve?
 
@@ -22,15 +22,15 @@ List open issues by repository in an org:
 
 ## Installation
 
-1. Install the newrelic-oss-cli
+1. Install the newrelic-newrelic-oss-cli
 2. Install plugins you want:
-    oss plugins:install plugin-oss-third-party
+    oss plugins:install newrelic-plugin-oss-third-party
 ## Development
 
 Start by cloning the repository.
 
 ```
-git clone https://github.com/newrelic/newrelic-oss-cli.git
+git clone https://github.com/newrelic/newrelic-newrelic-oss-cli.git
 cd <js-project-template>
 npm install
 ```
@@ -77,4 +77,4 @@ Useful commands:
 To "install" a plugin you want to develop, do not include it in the package.json and do not install it with `oss plugins:install YOURPLUGIN`, this will pull the npm version of the plugin.
 
 Instead you want to "link" it for local development with:
-`./packages/oss-cli/bin/run plugins:link <path to your plugin>`
+`./packages/newrelic-oss-cli/bin/run plugins:link <path to your plugin>`

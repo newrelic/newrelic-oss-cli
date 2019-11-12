@@ -1,7 +1,7 @@
 {
-    "name": "@newrelic/oss-cli",
+    "name": "@newrelic/newrelic-oss-cli",
     "description": "Open Source Software CLI",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "author": "New Relic",
     "bin": {
         "oss": "./bin/run"
@@ -10,7 +10,7 @@
     "oclif": {
         "commands": "./src/commands",
         "bin": "oss",
-        "dirname": "oss-cli",
+        "dirname": "newrelic-oss-cli",
         "plugins": [
             "@oclif/plugin-not-found",
             "@oclif/plugin-plugins",
@@ -20,7 +20,7 @@
             "@oclif/plugin-which",
             "@oclif/plugin-commands",
             "@oclif/plugin-autocomplete",
-            "@newrelic/plugin-oss-third-party"
+            "@newrelic/newrelic-plugin-oss-third-party"
         ]
     },
     "scripts": {
@@ -30,7 +30,7 @@
         "test": "echo NO TESTS",
         "version": "oclif-dev readme && git add README.md"
     },
-    "bugs": "https://github.com/newrelic/newrelic-oss-cli/issues",
+    "bugs": "https://github.com/newrelic/newrelic-newrelic-oss-cli/issues",
     "dependencies": {
         "@oclif/command": "^1.5.15",
         "@oclif/config": "^1.13.0",
@@ -42,7 +42,7 @@
         "@oclif/plugin-which": "^1.0.3",
         "@oclif/plugin-commands": "^1.2.3",
         "@oclif/plugin-autocomplete": "^0.1.0",
-        "@newrelic/plugin-oss-third-party": "^0.0.0"
+        "@newrelic/newrelic-plugin-oss-third-party": "^0.0.0"
     },
     "devDependencies": {
         "@oclif/dev-cli": "1.22.0"
@@ -56,10 +56,10 @@
         "/oclif.manifest.json",
         "/src"
     ],
-    "homepage": "https://github.com/newrelic/newrelic-oss-cli",
+    "homepage": "https://github.com/newrelic/newrelic-newrelic-oss-cli",
     "keywords": [
         "oclif"
     ],
     "license": "MIT",
-    "repository": "newrelic/oss-cli"
+    "repository": "newrelic/newrelic-oss-cli"
 }
