@@ -1,6 +1,6 @@
 {
   "name": "@newrelic/newrelic-plugin-oss-third-party",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "New Relic",
   "bugs": "https://github.com/newrelic/newrelic-oss-cli/issues",
   "dependencies": {
@@ -49,6 +49,6 @@
     "version": "oclif-dev readme && git add README.md"
   },
   "publishConfig": {
-     "access": "public"
+    "access": "public"
   }
 }
