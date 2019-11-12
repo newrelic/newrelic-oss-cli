@@ -61,5 +61,8 @@
         "oclif"
     ],
     "license": "MIT",
-    "repository": "newrelic/newrelic-oss-cli"
+    "repository": "newrelic/newrelic-oss-cli",
+    "publishConfig": {
+        "access": "public"
+    }
 }
