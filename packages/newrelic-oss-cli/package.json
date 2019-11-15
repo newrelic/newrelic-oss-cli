@@ -60,7 +60,7 @@
     "keywords": [
         "oclif"
     ],
-    "license": "MIT",
+    "license": "Apache-2.0",
     "repository": "newrelic/newrelic-oss-cli",
     "publishConfig": {
         "access": "public"
