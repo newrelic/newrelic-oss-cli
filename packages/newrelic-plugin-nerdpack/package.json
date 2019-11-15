@@ -1,12 +1,14 @@
 {
-  "name": "newrelic-plugin-nerdpack",
+  "name": "@newrelic/newrelic-plugin-nerdpack",
   "description": "utilities for open-sourcing a nerdpack",
   "version": "0.0.2",
   "author": "DevFreddy @devfreddy",
   "bugs": "https://github.com/newrelic/newrelic-oss-cli/issues",
   "dependencies": {
     "@oclif/command": "^1.5.19",
-    "@oclif/config": "^1.13.3"
+    "@oclif/config": "^1.13.3",
+    "handlebars": "^4.5.2",
+    "inquirer": "^7.0.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",

@@ -20,7 +20,8 @@
             "@oclif/plugin-which",
             "@oclif/plugin-commands",
             "@oclif/plugin-autocomplete",
-            "@newrelic/newrelic-plugin-oss-third-party"
+            "@newrelic/newrelic-plugin-oss-third-party",
+            "@newrelic/newrelic-plugin-nerdpack"
         ]
     },
     "scripts": {
@@ -33,6 +34,7 @@
     "bugs": "https://github.com/newrelic/newrelic-newrelic-oss-cli/issues",
     "dependencies": {
         "@newrelic/newrelic-plugin-oss-third-party": "^0.0.2",
+        "@newrelic/newrelic-plugin-nerdpack": "^0.0.2",
         "@oclif/command": "^1.5.15",
         "@oclif/config": "^1.13.0",
         "@oclif/plugin-autocomplete": "^0.1.0",
