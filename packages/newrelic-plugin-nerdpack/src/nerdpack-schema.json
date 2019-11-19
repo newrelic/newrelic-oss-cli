@@ -1,0 +1,109 @@
+{
+    "files": [
+        {
+            "fileName": ".eslintrc.js",
+            "questions": [
+
+            ]
+        },
+        {
+            "fileName": ".gitignore",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": ".prettierrc.js",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": ".releaserc",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": "cla.md",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": "CODE_OF_CONDUCT.MD",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": "CONTRIBUTING.MD",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": "LICENSE",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": "package.json",
+            "questions": [
+                {
+                    "type": "input",
+                    "name": "NERDPACK_NAME",
+                    "message": "What is the name of your Nerdpack?",
+                    "default": "nr1-the-coolest-nerdpack-ever"
+                }
+            ]
+        },
+        {
+            "fileName": "README.MD",
+            "questions": [  
+                {
+                    "type": "input",
+                    "name": "NERDPACK_NAME",
+                    "message": "What is the name of your Nerdpack?",
+                    "default": "nr1-the-coolest-nerdpack-ever"
+                }
+            ]
+        },
+        {
+            "fileName": "config.yml",
+            "filePath": ".circleci",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": "bug_report.md",
+            "filePath": ".github/ISSUE_TEMPLATE",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": "enhancement.md",
+            "filePath": ".github/ISSUE_TEMPLATE",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": ".gitkeep",
+            "filePath": "examples",
+            "questions": [
+                
+            ]
+        },
+        {
+            "fileName": ".gitkeep",
+            "filePath": "screenshots",
+            "questions": [
+                
+            ]
+        }
+    ]
+}
