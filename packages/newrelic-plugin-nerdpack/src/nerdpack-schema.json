@@ -31,13 +31,13 @@
             ]
         },
         {
-            "fileName": "CODE_OF_CONDUCT.MD",
+            "fileName": "CODE_OF_CONDUCT.md",
             "questions": [
                 
             ]
         },
         {
-            "fileName": "CONTRIBUTING.MD",
+            "fileName": "CONTRIBUTING.md",
             "questions": [
                 
             ]
@@ -60,7 +60,7 @@
             ]
         },
         {
-            "fileName": "README.MD",
+            "fileName": "README.md",
             "questions": [  
                 {
                     "type": "input",
