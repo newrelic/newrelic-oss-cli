@@ -87,3 +87,5 @@ We also will probably want to create some default community files for New Relic:
  * https://github.com/todogroup/awesome-oss-mgmt
  * https://github.com/googleapis/github-repo-automation
  * https://github.com/todogroup/repolinter
+ * https://todogroup.org/guides/management-tools/
+ * https://autodesk.github.io/hubble/pr-usage
