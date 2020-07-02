@@ -60,4 +60,20 @@ DESCRIPTION
 ```
 
 _See code: [src/commands/third-party.js](https://github.com/newrelic/newrelic-oss-cli/blob/v0.0.2/src/commands/third-party.js)_
+
+## Additional Third-Party Notices
+If you have additional third party notices which you would like to include, you can place them in a `THIRD_PARTY_NOTICES_ADDENDUM.md` file at the root of the project. To ensure the table of contents is formatted correctly, use the following format for this file:
+```Markdown
+You can insert a disclaimer about this file here 
+
+<!-- licence -->
+## Package/Licence name
+Third party content here
+<!-- licencestop -->
+
+<!-- licence -->
+## Other Package/Licence name
+Third party content here
+<!-- licencestop -->
+```
 <!-- commandsstop -->
