@@ -14,6 +14,7 @@ const licenseCheckerInit = util.promisify(licenseChecker.init)
 
 const THIRD_PARTY_MANIFEST_FILE = 'third_party_manifest.json'
 const THIRD_PARTY_NOTICES_FILE = 'THIRD_PARTY_NOTICES.md'
+const THIRD_PARTY_ADDENDUM_FILE = 'THIRD_PARTY_NOTICES_ADDENDUM.md'
 
 class ThirdPartyCommand extends Command {
   async run() {
@@ -225,6 +226,7 @@ class ThirdPartyCommand extends Command {
     const projectUrl = manifest.projectUrl
 
     const depFieldsToInclude = this.getDepFields(manifest)
+    const thirdPartyAddendum = await this.loadThirdPartyAddendum()
 
     let thirdPartyContent = `# Third Party Notices
 
@@ -253,6 +255,12 @@ code, the source code can be found in this repository.`
         thirdPartyContent += `* [${pkg.name}](${this.mdTitleLink(pkg.name)})\n`
       })
     })
+
+    if (thirdPartyAddendum) {
+      thirdPartyContent += '\n**[Additional Licenses](#additional-licenses)**\n\n'
+      for (const add of thirdPartyAddendum)
+        thirdPartyContent += `* [${add.title}](${this.mdTitleLink(add.title)})\n`
+    }
 
     thirdPartyContent += '\n'
 
@@ -287,7 +295,53 @@ ${licenseContent}
       })
     })
 
+    if (thirdPartyAddendum) {
+      thirdPartyContent += '## Additional Licenses\n\n'
+      thirdPartyContent += thirdPartyAddendum.map(t => t.content).join('\n\n')
+      thirdPartyContent += '\n'
+    }
+
     return thirdPartyContent
+  }
+
+  async loadThirdPartyAddendum() {
+    const addendum = await this.getThirdPartyAddendum()
+    if (!addendum)
+      return
+    // scan the document for markdown sections, attempting to build a table of contents
+    const start = /^\s*<!--\s*licence\s*-->\s*$/gm
+    const end = /^\s*<!--\s*licencestop\s*-->\s*$/gm
+    const items = []
+    for (;;) {
+      if (!start.exec(addendum))
+        break
+      // find the stop, if it exists
+      end.lastIndex = start.lastIndex
+      const endMatch = end.exec(addendum)
+      // split the string between the start and stop to extract the heading and licence
+      const licence = addendum.substring(start.lastIndex, endMatch ? endMatch.index : undefined)
+      // extract the markdown title for links
+      const title = licence.match(/^\s*#+(.*)$/m)
+      if (!title || !title[1]) {
+        this.log(chalk.red(`Something went wrong loading the addendum from from ${THIRD_PARTY_ADDENDUM_FILE}.`))
+        this.log(chalk.red('Could not find a title for the following licence. Did you format the file correctly?'))
+        this.log(licence)
+        this.error(new Error(`Could not determine title for licence in ${THIRD_PARTY_ADDENDUM_FILE}`))
+      }
+      const titleTrim = title[1].trim()
+      // replace the title in licence with a normalized header amount
+      const normalized = licence.replace(/^\s*#+(.*)$/m, `### ${titleTrim}`).trim()
+      items.push({
+        content: normalized,
+        title: titleTrim,
+      })
+      // if there was no closing tag before the end of the file, break
+      if (!endMatch)
+        break
+    }
+    // return the information we gathered
+    if (items.length > 0)
+      return items
   }
 
   getDepFields(manifest) {
@@ -344,6 +398,16 @@ ${licenseContent}
     })
   }
 
+  async getThirdPartyAddendum() {
+    try {
+      const file = fs.readFileSync(THIRD_PARTY_ADDENDUM_FILE, 'utf8')
+      this.log(`Found ${THIRD_PARTY_ADDENDUM_FILE} file`)
+      return file
+    } catch (e) {
+      this.log(`No ${THIRD_PARTY_ADDENDUM_FILE} file found.`)
+    }
+  }
+
   mdTitleLink(title) {
     return `#${title.replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`
   }
@@ -363,6 +427,7 @@ ThirdPartyCommand.description = `Generate third party notices
 (1) Make sure you have run "npm install" before using this tool. It depends on node_modules.
 (2) Run with "manifest" to update the manifest file (${THIRD_PARTY_MANIFEST_FILE}).
 (3) Review the contents of ${THIRD_PARTY_MANIFEST_FILE} for accuracy and items marked "FOR_REVIEW" that require manual intervention.
+(3a) Optionally add additional third party notices to a THIRD_PARTY_ADDENDUM.md file at the root of the project.
 (4) Run with "notices" to update the notices file (${THIRD_PARTY_NOTICES_FILE}) using the manifest.
 (5) Review the contents of ${THIRD_PARTY_NOTICES_FILE} for accuracy.
 (6) Commit and deploy your changes.
