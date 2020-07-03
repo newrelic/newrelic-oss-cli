@@ -1,3 +1,5 @@
+[![New Relic Experimental header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#new-relic-experimental)
+
 # newrelic-oss-cli
 
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/newrelic/newrelic-oss-cli?include_prereleases&sort=semver) [![Snyk](https://snyk.io/test/github/newrelic/newrelic-oss-cli/badge.svg)](https://snyk.io/test/github/newrelic/newrelic-oss-cli)[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
