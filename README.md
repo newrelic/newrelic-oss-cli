@@ -1,3 +1,5 @@
+[![New Relic Experimental header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#new-relic-experimental)
+
 # newrelic-oss-cli
 
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/newrelic/newrelic-oss-cli?include_prereleases&sort=semver) [![Snyk](https://snyk.io/test/github/newrelic/newrelic-oss-cli/badge.svg)](https://snyk.io/test/github/newrelic/newrelic-oss-cli)[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
@@ -9,6 +11,7 @@ This is a monorepo for NewRelic's "Open Source Software" (oss) CLI. A collection
 ![Screenshot #1](screenshots/screenshot_01.png)
 
 ### Third Party Notice Generation (for npm-based projects)
+
 Generate a manifest (config) file - `oss third-party manifest`
 Generate a formatted notices file - `oss third-party notices`
 
@@ -43,7 +46,7 @@ We encourage you to bring your experiences and questions to the [Explorers Hub](
 
 New Relic hosts and moderates an online forum where customers can interact with New Relic employees as well as other customers to get help and share best practices. Like all official New Relic open source projects, there's a related Community topic in the New Relic Explorers Hub. You can find this project's topic/threads here:
 
-https://discuss.newrelic.com
+[https://discuss.newrelic.com](https://discuss.newrelic.com)
 
 ### Issues / Enhancement Requests
 
@@ -73,7 +76,22 @@ You can run commands directly from the cloned repo like this:
 ```
 
 ### Plugin Development
+
 To "install" a plugin you want to develop, do not include it in the package.json and do not install it with `oss plugins:install YOURPLUGIN`, this will pull the npm version of the plugin.
 
 Instead you want to "link" it for local development with:
 `./packages/newrelic-oss-cli/bin/run plugins:link <path to your plugin>`
+
+## Publishing a new version
+
+From the root of this project:
+
+1. `lerna clean` - removes all `node_modules` folders
+1. `lerna link` - this pulls in local plugins through symbolical links
+1. `lerna bootstrap` - installs dependencies into `node_modules`
+
+From inside of `/packages/newrelic-oss-cli`:
+
+1. Update the version in `package.json` and `package-lock.json`
+1. `npm publish --dry-run`
+1. `npm publish`

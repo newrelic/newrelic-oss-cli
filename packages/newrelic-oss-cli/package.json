@@ -1,7 +1,7 @@
 {
     "name": "@newrelic/newrelic-oss-cli",
     "description": "Open Source Software CLI",
-    "version": "0.0.2",
+    "version": "0.0.6",
     "author": "New Relic",
     "bin": {
         "oss": "./bin/run"
@@ -20,8 +20,7 @@
             "@oclif/plugin-which",
             "@oclif/plugin-commands",
             "@oclif/plugin-autocomplete",
-            "@newrelic/newrelic-plugin-oss-third-party",
-            "@newrelic/newrelic-plugin-nerdpack"
+            "@newrelic/newrelic-plugin-oss-third-party"
         ]
     },
     "scripts": {
