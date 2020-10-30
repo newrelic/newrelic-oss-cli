@@ -141,7 +141,7 @@ class ThirdPartyCommand extends Command {
 
     let licenseUrl
     const nodeModulesPath = `node_modules/${pkgName}/`
-    if (licenseFile.indexOf(nodeModulesPath) >= 0) {
+    if (licenseFile.indexOf?.(nodeModulesPath) >= 0) {
       const licensePath = licenseFile.slice(
         licenseFile.indexOf(nodeModulesPath) + nodeModulesPath.length,
         licenseFile.length)
@@ -152,7 +152,7 @@ class ThirdPartyCommand extends Command {
     }
 
     let licenseTextSource
-    if (licenseFile.toLowerCase().indexOf('license') >= 0) {
+    if (licenseFile?.toLowerCase()?.indexOf('license') >= 0) {
       licenseTextSource = 'file'
     } else if (spdxLicenseList[licenses]) {
       licenseTextSource = 'spdx'
@@ -162,7 +162,7 @@ class ThirdPartyCommand extends Command {
       this.warn(`Unable to determine source of license text for ${pkgName} v${pkgVersion}`)
     }
 
-    if (repoUrl.indexOf('source.datanerd.us') >= 0) {
+    if (repoUrl?.indexOf('source.datanerd.us') >= 0) {
       FOR_REVIEW.push('Internal dependency.')
       this.warn(`Found an internal dependency for ${pkgName} v${pkgVersion}`)
     }
