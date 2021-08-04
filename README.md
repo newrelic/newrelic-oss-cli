@@ -65,8 +65,7 @@ This is a [Lerna](https://github.com/lerna/lerna) monorepo. Developing locally h
 Useful commands:
 
 `lerna clean` - remove all node_modules folders
-`lerna link` - link local dependencies
-`lerna bootstrap` - install all dependencies (install node_modules folder)
+`lerna bootstrap` - install all dependencies for every package and symlink packages within
 `lerna list` - list packages
 
 You can run commands directly from the cloned repo like this:
@@ -87,11 +86,7 @@ Instead you want to "link" it for local development with:
 From the root of this project:
 
 1. `lerna clean` - removes all `node_modules` folders
-1. `lerna link` - this pulls in local plugins through symbolical links
 1. `lerna bootstrap` - installs dependencies into `node_modules`
+1. `lerna version <semver type>` - bumps versions of all changed packages
+1. `lerna publish` - publishes all changes to npm
 
-From inside of `/packages/newrelic-oss-cli`:
-
-1. Update the version in `package.json` and `package-lock.json`
-1. `npm publish --dry-run`
-1. `npm publish`
