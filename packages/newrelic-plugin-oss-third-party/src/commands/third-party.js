@@ -315,8 +315,8 @@ ${licenseContent}
     if (!addendum)
       return
     // scan the document for markdown sections, attempting to build a table of contents
-    const start = /^\s*<!--\s*licence\s*-->\s*$/gm
-    const end = /^\s*<!--\s*licencestop\s*-->\s*$/gm
+    const start = /^\s*<!--\s*licen[c|s]e\s*-->\s*$/gm
+    const end = /^\s*<!--\s*licen[c|s]estop\s*-->\s*$/gm
     const items = []
     for (;;) {
       if (!start.exec(addendum))
