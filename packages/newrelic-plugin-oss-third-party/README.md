@@ -45,11 +45,12 @@ ARGUMENTS
 
 OPTIONS
   --forceUpdate  Force update of manifest file.
+  --includeOptDeps Include optional dependencies in manifest.
 
 DESCRIPTION
   (1) Make sure you have run "npm install" before using this tool. It depends on node_modules.
   (2) Run with "manifest" to update the manifest file (third_party_manifest.json).
-  (3) Review the contents of third_party_manifest.json for accuracy and items marked "FOR_REVIEW" that require manual 
+  (3) Review the contents of third_party_manifest.json for accuracy and items marked "FOR_REVIEW" that require manual
   intervention.
   (4) Run with "notices" to update the notices file (THIRD_PARTY_NOTICES.md) using the manifest.
   (5) Review the contents of THIRD_PARTY_NOTICES.md for accuracy.
@@ -64,7 +65,7 @@ _See code: [src/commands/third-party.js](https://github.com/newrelic/newrelic-os
 ## Additional Third-Party Notices
 If you have additional third party notices which you would like to include, you can place them in a `THIRD_PARTY_NOTICES_ADDENDUM.md` file at the root of the project. To ensure the table of contents is formatted correctly, use the following format for this file:
 ```Markdown
-You can insert a disclaimer about this file here 
+You can insert a disclaimer about this file here
 
 <!-- licence -->
 ## Package/Licence name
