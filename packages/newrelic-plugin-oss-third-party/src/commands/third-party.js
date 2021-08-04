@@ -15,6 +15,7 @@ const licenseCheckerInit = util.promisify(licenseChecker.init)
 const THIRD_PARTY_MANIFEST_FILE = 'third_party_manifest.json'
 const THIRD_PARTY_NOTICES_FILE = 'THIRD_PARTY_NOTICES.md'
 const THIRD_PARTY_ADDENDUM_FILE = 'THIRD_PARTY_NOTICES_ADDENDUM.md'
+const THIRD_PARTY_FOOTER = 'THIRD_PARTY_NOTICES_FOOTER.md'
 
 class ThirdPartyCommand extends Command {
   async run() {
@@ -227,6 +228,7 @@ class ThirdPartyCommand extends Command {
 
     const depFieldsToInclude = this.getDepFields(manifest)
     const thirdPartyAddendum = await this.loadThirdPartyAddendum()
+    const footerText = await this.loadFooter()
 
     let thirdPartyContent = `# Third Party Notices
 
@@ -299,6 +301,10 @@ ${licenseContent}
       thirdPartyContent += '## Additional Licenses\n\n'
       thirdPartyContent += thirdPartyAddendum.map(t => t.content).join('\n\n')
       thirdPartyContent += '\n'
+    }
+
+    if (footerText) {
+      thirdPartyContent += `\n${footerText}\n`
     }
 
     return thirdPartyContent
@@ -408,6 +414,16 @@ ${licenseContent}
     }
   }
 
+  async loadFooter() {
+    try {
+      const file = fs.readFileSync(THIRD_PARTY_FOOTER, 'utf8')
+      this.log(`Found ${THIRD_PARTY_FOOTER} file`)
+      return file
+    } catch (e) {
+      this.log(`No ${THIRD_PARTY_FOOTER} file found.`)
+    }
+  }
+
   mdTitleLink(title) {
     return `#${title.replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`
   }
@@ -427,9 +443,10 @@ ThirdPartyCommand.description = `Generate third party notices
 (1) Make sure you have run "npm install" before using this tool. It depends on node_modules.
 (2) Run with "manifest" to update the manifest file (${THIRD_PARTY_MANIFEST_FILE}).
 (3) Review the contents of ${THIRD_PARTY_MANIFEST_FILE} for accuracy and items marked "FOR_REVIEW" that require manual intervention.
-(3a) Optionally add additional third party notices to a THIRD_PARTY_ADDENDUM.md file at the root of the project.
+(3a) Optionally add additional third party notices to a ${THIRD_PARTY_ADDENDUM_FILE} file at the root of the project.
 (4) Run with "notices" to update the notices file (${THIRD_PARTY_NOTICES_FILE}) using the manifest.
 (5) Review the contents of ${THIRD_PARTY_NOTICES_FILE} for accuracy.
+(5a) Optionally add a footer to a ${THIRD_PARTY_FOOTER} file at the root of the project.
 (6) Commit and deploy your changes.
 (7) Yay open source!
 
