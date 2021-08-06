@@ -19,7 +19,7 @@ $ npm install -g @newrelic/newrelic-plugin-oss-third-party
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@newrelic/newrelic-plugin-oss-third-party/0.1.0 darwin-x64 node-v16.5.0
+@newrelic/newrelic-plugin-oss-third-party/0.1.1 darwin-x64 node-v16.5.0
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -35,6 +35,20 @@ USAGE
 Generate third party notices
 
 ```
+Generate third party notices
+(1) Make sure you have run "npm install" before using this tool. It depends on node_modules.
+(2) Run with "manifest" to update the manifest file (third_party_manifest.json).
+(3) Review the contents of third_party_manifest.json for accuracy and items marked "FOR_REVIEW" that require manual intervention.
+(3a) Optionally add additional third party notices to a THIRD_PARTY_NOTICES_ADDENDUM.md file at the root of the project.
+(4) Run with "notices" to update the notices file (THIRD_PARTY_NOTICES.md) using the manifest.
+(5) Review the contents of THIRD_PARTY_NOTICES.md for accuracy.
+(5a) Optionally add a footer to a THIRD_PARTY_NOTICES_FOOTER.md file at the root of the project.
+(6) Commit and deploy your changes.
+(7) Yay open source!
+
+WARNING: this tool does not currently handle monorepos.
+
+
 USAGE
   $ oclif-example third-party FILE
 
@@ -63,5 +77,5 @@ DESCRIPTION
   WARNING: this tool does not currently handle monorepos.
 ```
 
-_See code: [src/commands/third-party.js](https://github.com/newrelic/newrelic-oss-cli/blob/v0.1.0/src/commands/third-party.js)_
+_See code: [src/commands/third-party.js](https://github.com/newrelic/newrelic-oss-cli/blob/v0.1.1/src/commands/third-party.js)_
 <!-- commandsstop -->
