@@ -88,5 +88,5 @@ From the root of this project:
 1. `lerna clean` - removes all `node_modules` folders
 1. `lerna bootstrap` - installs dependencies into `node_modules`
 1. `lerna version <semver type>` - bumps versions of all changed packages
-1. `lerna publish` - publishes all changes to npm
+1. `lerna publish from-git` - publishes all changes to npm
 

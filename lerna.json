@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*"
+    "packages/newrelic-oss-cli",
+    "packages/newrelic-plugin-oss-third-party"
   ],
   "version": "0.0.2"
 }
