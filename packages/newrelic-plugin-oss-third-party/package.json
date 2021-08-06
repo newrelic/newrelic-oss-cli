@@ -1,6 +1,6 @@
 {
   "name": "@newrelic/newrelic-plugin-oss-third-party",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "author": "New Relic",
   "bugs": "https://github.com/newrelic/newrelic-oss-cli/issues",
   "dependencies": {
