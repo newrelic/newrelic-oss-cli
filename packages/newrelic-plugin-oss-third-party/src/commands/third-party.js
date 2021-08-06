@@ -19,10 +19,10 @@ const THIRD_PARTY_FOOTER = 'THIRD_PARTY_NOTICES_FOOTER.md'
 
 class ThirdPartyCommand extends Command {
   async run() {
-    const {args: {file}, flags: {forceUpdate}} = this.parse(ThirdPartyCommand)
+    const {args: {file}, flags: {forceUpdate, includeOptDeps }} = this.parse(ThirdPartyCommand)
 
     if (!fs.existsSync(THIRD_PARTY_MANIFEST_FILE)) {
-      await this.initializeManifest()
+      await this.initializeManifest(includeOptDeps)
     }
 
     const responsibilityNotice = 'This tool assists with the creation of third party notice files, but it cannot guarantee correctness for all use cases. You are responsible for validating the output and manually correcting any issues.'
@@ -31,13 +31,13 @@ class ThirdPartyCommand extends Command {
     this.log(chalk.red(`${responsibilityNotice}\n\n${allowedLicensesNotice}\n`))
 
     if (file === 'manifest') {
-      await this.updateManifest(forceUpdate)
+      await this.updateManifest(forceUpdate, includeOptDeps)
     } else if (file === 'notices') {
       await this.updateNotices()
     }
   }
 
-  async initializeManifest() {
+  async initializeManifest(includeOptDeps) {
     this.log(chalk.red(`You are missing ${THIRD_PARTY_MANIFEST_FILE} to ` +
         'configure your project. Let\'s set it up!'))
     const projectName = await cli.prompt('What is the user-friendly name of your project (used to reference your project in output)?')
@@ -48,6 +48,7 @@ class ThirdPartyCommand extends Command {
       projectName: projectName,
       projectUrl: projectUrl,
       includeDev: true,
+      includeOptDeps
     }
 
     fs.writeJsonSync(THIRD_PARTY_MANIFEST_FILE, baseConfig, {
@@ -55,7 +56,7 @@ class ThirdPartyCommand extends Command {
     })
   }
 
-  async updateManifest(forceUpdate) {
+  async updateManifest(forceUpdate, includeOptDeps) {
     this.log(chalk.inverse(` Updating ${THIRD_PARTY_MANIFEST_FILE}. `))
 
     const manifest = await this.getManifest() || {}
@@ -63,11 +64,14 @@ class ThirdPartyCommand extends Command {
       lastUpdated, includeDev, dependencies, devDependencies, ...otherConfig
     } = manifest
 
+    manifest.includeOptDeps = includeOptDeps
+
     const updatedDependencies = await this.getUpdatedDependencies(manifest, forceUpdate)
     const updatedManifest = {
       lastUpdated: `${new Date()}`,
       ...otherConfig,
       includeDev,
+      includeOptDeps,
       ...updatedDependencies,
     }
 
@@ -355,6 +359,10 @@ ${licenseContent}
     if (manifest.includeDev) {
       depFieldsToInclude.push('devDependencies')
     }
+
+    if (manifest.includeOptDeps) {
+      depFieldsToInclude.push('optionalDependencies')
+    }
     return depFieldsToInclude
   }
 
@@ -463,6 +471,10 @@ ThirdPartyCommand.args = [{
 ThirdPartyCommand.flags = {
   forceUpdate: flags.boolean({
     description: 'Force update of manifest file.',
+    default: false,
+  }),
+  includeOptDeps: flags.boolean({
+    description: 'Include optional dependencies in manfiest',
     default: false,
   }),
 }
