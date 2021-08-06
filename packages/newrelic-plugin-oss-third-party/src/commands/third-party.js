@@ -6,7 +6,6 @@ const {Command, flags} = require('@oclif/command')
 const chalk = require('chalk')
 const fs = require('fs-extra')
 const licenseChecker = require('license-checker')
-const semver = require('semver')
 const spdxLicenseList = require('spdx-license-list/full')
 const util = require('util')
 
@@ -106,8 +105,7 @@ class ThirdPartyCommand extends Command {
       const licenseCheckerPkg = licenseCheckerPkgs[pkg]
 
       depFieldsToInclude.forEach(depField => {
-        const pkgInDependencies = pkgJson[depField] && pkgJson[depField][pkgName] &&
-          semver.satisfies(pkgVersion, pkgJson[depField][pkgName])
+        const pkgInDependencies = pkgJson[depField] && pkgJson[depField][pkgName]
 
         if (pkgInDependencies) {
           const pkgInOldManifest = manifest[depField] && manifest[depField][pkg] &&
@@ -405,6 +403,7 @@ ${licenseContent}
 
   async getLicenseCheckerPackages() {
     return licenseCheckerInit({
+      direct: 0, // only get direct deps of root package
       start: '.',
       unknown: true,
       summary: true,
