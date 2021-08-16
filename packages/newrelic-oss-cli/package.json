@@ -1,7 +1,7 @@
 {
     "name": "@newrelic/newrelic-oss-cli",
     "description": "Open Source Software CLI",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": "New Relic",
     "bin": {
         "oss": "./bin/run"
@@ -32,7 +32,7 @@
     },
     "bugs": "https://github.com/newrelic/newrelic-newrelic-oss-cli/issues",
     "dependencies": {
-        "@newrelic/newrelic-plugin-oss-third-party": "^0.1.1",
+        "@newrelic/newrelic-plugin-oss-third-party": "^0.1.2",
         "@oclif/command": "^1.5.15",
         "@oclif/config": "^1.13.0",
         "@oclif/plugin-autocomplete": "^0.1.0",

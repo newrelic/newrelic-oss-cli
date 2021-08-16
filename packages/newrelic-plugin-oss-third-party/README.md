@@ -19,7 +19,7 @@ $ npm install -g @newrelic/newrelic-plugin-oss-third-party
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@newrelic/newrelic-plugin-oss-third-party/0.1.1 darwin-x64 node-v16.5.0
+@newrelic/newrelic-plugin-oss-third-party/0.1.2 darwin-x64 node-v16.5.0
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -77,5 +77,5 @@ DESCRIPTION
   WARNING: this tool does not currently handle monorepos.
 ```
 
-_See code: [src/commands/third-party.js](https://github.com/newrelic/newrelic-oss-cli/blob/v0.1.1/src/commands/third-party.js)_
+_See code: [src/commands/third-party.js](https://github.com/newrelic/newrelic-oss-cli/blob/v0.1.2/src/commands/third-party.js)_
 <!-- commandsstop -->
