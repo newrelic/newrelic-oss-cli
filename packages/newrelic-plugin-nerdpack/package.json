@@ -5,7 +5,7 @@
   "author": "DevFreddy @devfreddy",
   "bugs": "https://github.com/newrelic/newrelic-oss-cli/issues",
   "dependencies": {
-    "@oclif/command": "^1.5.19",
+    "@oclif/command": "^1.8.16",
     "@oclif/config": "^1.13.3",
     "handlebars": "^4.7.6",
     "inquirer": "^7.0.0"
