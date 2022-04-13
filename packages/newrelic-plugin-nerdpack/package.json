@@ -8,7 +8,7 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "handlebars": "^4.7.6",
-    "inquirer": "^7.0.0"
+    "inquirer": "^7.3.3"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
